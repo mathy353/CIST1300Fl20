@@ -2,60 +2,34 @@
   <html lang="en">
     <head>
       <title>CIST1300Project</title>
-      <style>
-        table{
-          width: 100%;
-        }
-        table, tr, td{
-            border: 1px solid black;
-        }
-      </style>
+      <link rel="stylesheet" href="style.css" type="text/css">
     </head>
     <body>
-      <h1>This is my first page</h1>
-      <br>
-      <ul>
-        <li>I LIKE HTML</li>
-        <li>
-          <i>Does not look that complicated... in italics...</i>
-        </li>
-      <ul>
-      <p style="float: right">WHY IS THIS IN THE RIGHT?</p>
-      <br>
-      <br>
-      <span>WHY IS THIS COLORED </span>
-      <span style="color: red">RED ...</span>
-      <span>WHY IS THIS A LINK TO </span><a href="https://www.google.com">GOOGLE</a>
-      <br>
-      <br>
-      <table>
-        <tr>
-          <th>STATE</th>
-          <th>CAPITAL</th>
-          <th>NUMBER OF PEOPLE</th>
-        </tr>
-        <tr>
-          <td>NEW YORK</td>
-          <td>ALBANY</td>
-          <td>20 MILLION</td>
-        </tr>
-        <tr>
-          <td>CALIFORNIA</td>
-          <td>SACRAMENTO</td>
-          <td>18 MILLION</td>
-        </tr>
-        <tr>
-          <td>TEXAS</td>
-          <td>SAN ANTONIO</td>
-          <td>23 MILLION</td>
-        </tr>
-      </table>
-      <br>
-      <mark>I LIKE TO SEE MR.MICHAEL JACKSON TELLING ME HELLO RIGHT HERE.</mark>
-      <br>
-      <br>
-      <img src="jackson.jpg"></img>
-      <br>
-      <h10>By unknown author is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-SA-NC</a></h10>
+      <div class="header">
+        <img class="logo" src="logo.png" height="100px" width="100px">
+        <h2 class="heading">Engineering Company</h2>
+      </div>
+      <hr>
+      <div class="nav">
+        <span></span>
+        <span><a class="navLink current" href="index.html">Home</a></span>
+        <span><a class="navLink" href="team.html">Our Team</a></span>
+        <span><a class="navLink" href="service.html">Services</a></span>
+        <span><a class="navLink" href="contact.html">Contact Us</a></span>
+        <span></span>
+      </div>
+      <hr>
+      <div class="content">
+        <h2 class="heading">ABOUT US</h2>
+        <div>
+          <img src="gears.jpg" class="image left">
+        </div>
+        <p class="blurb">
+          Engineering Company is an Enginnering firm with over 20 years of experience in the industry. With an award-winning team of engineers, we are a flexible team that can adapt to nearly any problem, design, or prompt. Founded in the early 2000s by the original team of 6 students, Engineering Company has grown to a national workforce of engineers. Book a consultation, and we'll see of your project is a good fit for us!
+        </p>
+        <div class="footer">
+          <a class="footerLink" href="contact.html">Contact Us</a>
+        </div>
+      </div>
     </body>
   </html>

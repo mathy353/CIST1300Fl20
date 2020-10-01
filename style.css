@@ -1,0 +1,73 @@
+div {
+  /* outline: 2px dotted black; */
+}
+p{
+  white-space: pre-wrap;
+}
+p.blurb{
+  font-size: 25px;
+}
+.header{
+  padding: 10px;
+}
+.heading{
+  text-align: center;
+}
+.logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.nav{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.navLink{
+  text-decoration: none;
+  font-size: 25px;
+}
+.navLink:link{
+  color:black;
+}
+.navLink:visited{
+  color:gray;
+}
+.navlink.current{
+  color: red;
+}
+.image{
+  margin: 10px;
+  width: 40%;
+  height: auto;
+}
+.image.left{
+  float: left;
+}
+.image.right{
+  float: right;
+}
+.footer{
+  text-align: center;
+  font-size: 25px;
+}
+.footerLink{
+  color: black;
+  text-decoration: none;
+  outline: 3px solid red;
+  outline-offset: 10px;
+}
+.teammate{
+    overflow: auto;
+}
+p.teammate{
+  vertical-align: middle;
+}
+.image.teammate{
+  width: 200px;
+  height: auto;
+}
+.image.services{
+  width:250px;
+  height: auto;
+}
