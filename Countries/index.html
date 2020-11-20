@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Generate Countries table</title>
+  	<link rel="stylesheet" href="index.css" type="text/css">
+  </head>
+  <body>
+    <div id="leftMenu">
+      <div id="title">
+        <h1>Country Sorter</h1>
+        <br>
+        <h3 id="optionsTitle">List Options</h3>
+      </div>
+      <div id="leftMenuOptions">
+      	<table id="leftMenuUserInput">
+      		<tr>
+      			<td><label id="Number1lbl" class="leftMenuLabel" for="Number1lbl">Max Number of Countries</label></td>
+      			<td><input type="text" id="maxctryNumber" class="leftMenuInput" placeholder="3"></td>
+      		</tr>
+      		<tr>
+      			<td><label id="Number1lbl" class="leftMenuLabel" for="Number1lbl">Country Name</label></td>
+      			<td><input type="text" id="ctryNametxt" class="leftMenuInput leftMenuTextInput" placeholder="Country Name"></td>
+      		</tr>
+      		<tr>
+      			<td><label id="Number2lbl" class="leftMenuLabel" for="Number2lbl">Country Capital</label></td>
+      			<td><input type="text" id="ctryCapitaltxt" class="leftMenuInput leftMenuTextInput" placeholder="Country Capital"></td>
+      		</tr>
+      		<tr>
+      			<td><label id="Number3lbl" class="leftMenuLabel" for="Number3lbl">Country Population</label></td>
+      			<td><input type="text" id="ctryPoplntxt" class="leftMenuInput leftMenuTextInput" placeholder="1,000,000"></td>
+      		</tr>
+      		</table>
+          <br>
+          <table id="leftMenuButtons">
+      		<tr>
+      			<td colspan="2"><button type="button" id="addcountry" class="centerButton" onclick="addcountry()">Add country</button></td>
+          </tr>
+          <tr>
+      			<td colspan="2"><button type="button" id="generatectry" class="centerButton" onclick="generatecountrieslist(countrylist)">Generate Countries</button></td>
+      		</tr>
+      		<tr>
+      			<td><button type="button" id="sortcountryasc" class="centerButton" onclick="sortcountry(userinputcountry, countrylist)">Country Ascending</button></td>
+      			<td><button type="button" id="sortcptlasc" class="centerButton" onclick="sortcapital(userinputcptl, countrylist)">Capital Ascending</button></td>
+      		</tr>
+      	</table>
+      </div>
+    </div>
+      <table id="rightTables">
+        <tr>
+          <td><p>Sorted by Position</p></td>
+          <td><p>Sorted by Country</p></td>
+          <td><p>Sorted by Capital</p></td>
+        </tr>
+        <tr>
+          <td class="rightTable"><div id="tableContent"></div></td>
+          <td class="rightTable"><div id="ascendingCountry"></div></td>
+          <td class="rightTable"><div id="ascendingCapital"></div></td>
+        </tr>
+      </table>
+  	<script>
+  	  var defaultcountrylist=3;
+  	   //Declaring and defining string array variables one for country, one for capitals that we want to use. Prepopulating them with three values.
+  	  var userinputcountry = ["Norway", "Sweden", "Denmark"];
+  	  var userinputcptl = ["Oslo", "Stockholm" , "Copenhagen"];
+  	   //Declaring and defining object array for countrylist. Every country object has three attributes under it as you can see below. This initial country array is prepopulated with three countries.
+  		let countrylist = [
+  							  {
+  								"name": "Norway",
+  								"capital": "Oslo",
+  								"population": "5,421,000",
+
+  							  },
+  							  {
+  								"name": "Sweden",
+  								"capital": "Stockholm",
+  								"population": "10,100,000",
+  							  },
+  							  {
+  								"name": "Denmark",
+  								"capital": "Copenhagen",
+  								"population": "5,800,000",
+  							  }
+  		  				];
+  		function addcountry()
+  	  {
+  		  var lcladdedcountry= document.getElementById('ctryNametxt').value;
+  		  var lcladdedcptl= document.getElementById('ctryCapitaltxt').value;
+  		  var lclpopln= document.getElementById('ctryPoplntxt').value;
+        userinputcountry.push(lcladdedcountry[0].toUpperCase() + lcladdedcountry.slice(1));
+        userinputcptl.push(lcladdedcptl[0].toUpperCase() + lcladdedcptl.slice(1));
+        countrylist.push({
+          "name": lcladdedcountry[0].toUpperCase() + lcladdedcountry.slice(1),
+          "capital": lcladdedcptl[0].toUpperCase() + lcladdedcptl.slice(1),
+          "population": lclpopln,
+        })
+  		  /* Increasing the number of countries count by 1 since you have successfully added a country */
+  		  defaultcountrylist++;
+        document.getElementById('maxctryNumber').value = defaultcountrylist;
+        document.getElementById('ctryNametxt').value = '';
+        document.getElementById('ctryCapitaltxt').value = '';
+        document.getElementById('ctryPoplntxt').value = '';
+        alert(`${lcladdedcountry} added to list.`)
+        console.log(countrylist);
+  	  }
+
+  	  function generatecountries()
+  	  {
+  			const tmpl = (userinputcountry,userinputcptl) => `
+  				<table><thead>
+  				<tr><th>Country<th>Capital<tbody>
+  				${userinputcountry.map( (cell, index) => `
+  					<tr><td>${cell}<td>${userinputcptl[index]}</tr>
+  				`).join('')}
+  				</table>`;
+  		 tableContent.innerHTML=tmpl(userinputcountry,userinputcptl);
+  	  }
+  	  function generatecountrieslist(countries)
+  	  {
+  				var tbody = document.getElementById('tbody');
+		  		var tableHTML = '<table class="genTable"><thead><tr><th>Country<th>Capital<th>Population</thead><tbody>';
+          for(i = 0; i < countries.length; i++){
+            console.log("!");
+            tableHTML+="<tr>";
+            for(val in countries[i]){
+              // console.log(`${countries[i][c]}!`)
+              tableHTML+=`<td><p>${countries[i][val]}</p></td>`;
+            }
+            tableHTML+="</tr>"
+          }
+	  			tableHTML+="</tbody></table>";
+	  			tableContent.innerHTML= tableHTML;
+  	  }
+
+  	  function sortcountry(userInput, rawCountries)
+  	  {
+        var tableHTML = '<table class="genTable"><thead><tr><th>Country<th>Capital<th>Population</thead><tbody>'
+        var countrySorted = userInput.sort();
+        for(i = 0; i < countrySorted.length; i++){
+          for(j = 0; j < rawCountries.length; j++){
+            if(countrySorted[i] == rawCountries[j].name){
+              tableHTML+="<tr>";
+              for(val in rawCountries[j]){
+                tableHTML+=`<td><p>${rawCountries[j][val]}</p></td>`;
+              }
+              tableHTML+="</tr>"
+            }
+          }
+        }
+        tableHTML+="</tbody></table>";
+        ascendingCountry.innerHTML= tableHTML;
+  	  }
+
+  		function sortcapital(userInput, rawCountries)
+  		{
+        console.log("---!---")
+        console.log(userInput);
+        console.log(rawCountries);
+        var tableHTML = '<table class="genTable"><thead><tr><th>Country<th>Capital<th>Population</thead><tbody>'
+        var countrySorted = userInput.sort();
+        console.log("---!!!---")
+        console.log(userInput);
+        console.log(rawCountries);
+        for(i = 0; i < countrySorted.length; i++){
+          for(j = 0; j < rawCountries.length; j++){
+            if(countrySorted[i] == rawCountries[j].capital){
+              tableHTML+="<tr>";
+              for(val in rawCountries[j]){
+                tableHTML+=`<td><p>${rawCountries[j][val]}</p></td>`;
+              }
+              tableHTML+="</tr>"
+            }
+          }
+        }
+        tableHTML+="</tbody></table>";
+        ascendingCapital.innerHTML= tableHTML;
+  		}
+    </script>
+  </body>
+</html>

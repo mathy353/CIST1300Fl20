@@ -1,0 +1,72 @@
+div{
+  border: dotted 2px red
+}
+#leftMenu{
+  width: 25%;
+  height: 100%;
+  display: inline;
+  float: left;
+}
+#title{
+  text-align: center;
+  padding-top: 10%;
+}
+#optionsTitle{
+  margin-bottom: 0px;
+}
+#leftMenuOptions{
+  border: solid 3px black;
+  border-radius: 10px;
+  padding: 7px;
+}
+#leftMenuUserInput{
+  width: 100%;
+}
+.leftMenuLabel{
+  float: left;
+}
+.leftMenuInput{
+  float: right;
+}
+.leftMenuTextInput{
+  text-transform: capitalize;
+}
+#leftMenuButtons{
+  width: 100%;
+}
+.centerButton{
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
+/*right side*/
+
+#rightTables{
+  width: 73%;
+  height: 100%;
+  float: right;
+  border: solid 3px black;
+  border-radius: 10px;
+  padding: 7px;
+  position: relative;
+  text-align: center;
+}
+.rightTable{
+  width: 32%;
+}
+.genTable table, .genTable th, .genTable td{
+  border: 1px solid black;
+}
+table.genTable{
+  width: 100%;
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+#tableContent{
+  position: relative;
+}
+#ascendingCountry{
+}
+#ascendingCapital{
+}
